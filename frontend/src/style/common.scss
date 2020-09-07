@@ -1,7 +1,8 @@
 $breakpoints: (
-	'small': (max-width: 767px),
-	'medium': (max-width: 992px),
-	'large': (max-width: 1200px),
+	'XS': (max-width: 360px),
+	'S': (max-width: 767px),
+	'M': (max-width: 992px),
+	'L': (max-width: 1200px),
 ) !default;
 
 @mixin respond-to($breakpoint) {
@@ -21,13 +22,13 @@ $breakpoints: (
 
 body {
 	background: white;
-	@include respond-to('large') {
+	@include respond-to('L') {
 		background: pink;
 	}
-	@include respond-to('medium') {
+	@include respond-to('M') {
 		background: orange;
 	}
-	@include respond-to('small') {
+	@include respond-to('S') {
 		background: blue;
 	}
 }
