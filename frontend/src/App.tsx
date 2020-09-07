@@ -1,21 +1,17 @@
 import React from 'react';
 
-import logo from './logo.svg';
 import './App.scss';
 
 import Router from './pages';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
-      <body>
+		<div>
+			<Header />
+			<div className="container">
         <Router />
-      </body>
+			</div>
     </div>
   );
 }

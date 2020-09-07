@@ -19,16 +19,3 @@ $breakpoints: (
 		+ "Available breakpoints are: #{map-keys($breakpoints)}.";
 	}
 }
-
-body {
-	background: white;
-	@include respond-to('L') {
-		background: pink;
-	}
-	@include respond-to('M') {
-		background: orange;
-	}
-	@include respond-to('S') {
-		background: blue;
-	}
-}
