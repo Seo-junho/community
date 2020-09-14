@@ -5,6 +5,7 @@ const Header: React.FC = () => {
   return (
 		<header className="header">
 			Header
+			헤더
 		</header>
   );
 }

@@ -1,3 +1,5 @@
+@import url("~/style/font/s-core-dream.css");
+
 $breakpoints: (
 	'XS': (max-width: 360px),
 	'S': (max-width: 767px),
@@ -19,3 +21,46 @@ $breakpoints: (
 		+ "Available breakpoints are: #{map-keys($breakpoints)}.";
 	}
 }
+
+
+$font-100: #333333;
+
+$personal-100: #56AE95;
+$personal-200: #38A787;
+$personal-300: #38A183;
+$personal-500: #35957A;
+$personal-border: 1px solid #236A55;
+$personal-disabled: #EAF2F0;
+$personal-disabled-border: 1px solid #B7B7B7;
+
+body, h1, h2, h3, h4, h5, h6, li, p, li a, input, button, select, textarea, a {
+  font-family: "s-core-dream-light", sans-serif !important;
+  color: $font-100;
+}
+
+.top {
+	background-color: $personal-100;
+}
+
+.btn-base {
+	background-color: $personal-200;
+	border: $personal-border;
+	:hover {
+		background-color: $personal-300;
+	}
+	:onclick {
+		background-color: $personal-500;
+	}
+	:disabled {
+		background-color: $personal-disabled;
+		border: $personal-disabled-border;
+	}
+}
+
+
+
+
+
+
+
+
