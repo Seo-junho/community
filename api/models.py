@@ -6,6 +6,11 @@ from django.contrib.auth.models import User
 class Member(models.Model):
     idx = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    create_date_time = models.DateTimeField(auto_now_add=True, default=timezone.now)
+    update_date_time = models.DateTimeField(auto_now=True, default=timezone.now)
+    status = models.CharField(max_length=5)
     class Meta:
         db_table = 'member'
 
