@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 class Member(models.Model):
     idx = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
     class Meta:
         db_table = 'member'
 
