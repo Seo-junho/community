@@ -1,13 +1,13 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import FeedsView
+from .views import views
 
-feed_list = FeedsView.as_view({
+feed_list = views.as_view({
     'post': 'create',
     'get': 'list'
 })
 
-feed_detail = FeedsView.as_view({
+feed_detail = views.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -15,6 +15,7 @@ feed_detail = FeedsView.as_view({
 })
 
 urlpatterns = format_suffix_patterns([
+    path("", views.index, name="index"),
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('feeds/', feed_list, name='feed_list'),
     path('feeds/<int:pk>/', feed_detail, name='feed_detail'),
