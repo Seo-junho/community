@@ -3,6 +3,13 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
+class Member(models.Model):
+    idx = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    class Meta:
+        db_table = 'member'
+
 class Feeds(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=144)
