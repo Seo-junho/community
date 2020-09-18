@@ -10,6 +10,7 @@ import {
 
 import CounterContainer from '../components/counter/CounterContainer';
 import Login from './login';
+import SignUp from './signup';
 
 const Root: React.FC = () => (
   <Router>
@@ -18,12 +19,14 @@ const Root: React.FC = () => (
         <li><Link to="/">Home</Link></li>
         <li><Link to="/CounterContainer">CounterContainer</Link></li>
         <li><Link to="/login">Login Page</Link></li>
+        <li><Link to="/signup">SignUp Page</Link></li>
       </ul>
     </nav>
     <Switch>
       <Route path="/" exact={true} render={() => <h3>Home</h3>} />
 			<Route path="/CounterContainer" component={CounterContainer} />
 			<Route path="/login" component={Login} />
+			<Route path="/signup" component={SignUp} />
       <Redirect path="*" to="/" />
     </Switch>
   </Router>
