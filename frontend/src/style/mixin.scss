@@ -1,4 +1,4 @@
-@import url("~/style/font/s-core-dream.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
 
 $breakpoints: (
 	'XS': (max-width: 360px),
@@ -34,7 +34,7 @@ $personal-disabled: #EAF2F0;
 $personal-disabled-border: 1px solid #B7B7B7;
 
 body, h1, h2, h3, h4, h5, h6, li, p, li a, input, button, select, textarea, a {
-  font-family: "s-core-dream-light", sans-serif !important;
+  font-family: "Noto Sans KR", sans-serif !important;
   color: $font-100;
 }
 
