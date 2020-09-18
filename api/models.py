@@ -8,9 +8,9 @@ class Member(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
-    create_date_time = models.DateTimeField(auto_now_add=True, default=timezone.now)
-    update_date_time = models.DateTimeField(auto_now=True, default=timezone.now)
-    status = models.CharField(max_length=5)
+    create_date_time = models.DateTimeField(auto_now_add=True, auto_now=False)
+    update_date_time = models.DateTimeField(auto_now_add=False, auto_now=True)
+    status = models.CharField(max_length=5, default='A')
     class Meta:
         db_table = 'member'
 
