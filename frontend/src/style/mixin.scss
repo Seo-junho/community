@@ -23,19 +23,44 @@ $breakpoints: (
 }
 
 
-$font-100: #333333;
+$font-default: #333333;
 
 $personal-100: #56AE95;
 $personal-200: #38A787;
 $personal-300: #38A183;
 $personal-500: #35957A;
+$personal-600: #236A55;
+$personal-700: #1F5645;
 $personal-border: 1px solid #236A55;
 $personal-disabled: #EAF2F0;
 $personal-disabled-border: 1px solid #B7B7B7;
 
+$input-bg: #FEFEFE;
+$base-border: #ECECEC;
+
 body, h1, h2, h3, h4, h5, h6, li, p, li a, input, button, select, textarea, a {
   font-family: "Noto Sans KR", sans-serif !important;
-  color: $font-100;
+  color: $font-default;
+}
+
+h4 {
+	font-size: 3rem;
+	padding-bottom: 1rem;
+	margin: 0;
+}
+
+.container {
+	max-width: 1000px;
+	margin: auto;
+	@include respond-to('XS') {
+		max-width: 90%;
+	}
+	@include respond-to('S') {
+		max-width: 90%;
+	}
+	@include respond-to('M') {
+		max-width: 90%;
+	}
 }
 
 .top {
@@ -43,24 +68,34 @@ body, h1, h2, h3, h4, h5, h6, li, p, li a, input, button, select, textarea, a {
 }
 
 .btn-base {
-	background-color: $personal-200;
+	background-color: $personal-600;
 	border: $personal-border;
-	:hover {
-		background-color: $personal-300;
+	border-radius: 3px;
+	color: #ECECEC;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $personal-700;
 	}
-	:onclick {
+	&:onclick {
 		background-color: $personal-500;
 	}
-	:disabled {
+	&:disabled {
 		background-color: $personal-disabled;
 		border: $personal-disabled-border;
 	}
 }
 
+.card {
+	padding: 3rem;
+	border: 1px solid #EEEEEE;
+	border-radius: 5px;
+}
 
-
-
-
-
+.flex-r {
+	display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 
 

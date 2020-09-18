@@ -4,24 +4,25 @@ import './textBox.scss';
 export interface textBoxProps {
 	type?: string,
 	style?: object,
-	value?: string,
+	placeholder?: string,
 }
 
 const textBox: React.FC<textBoxProps> = (props) => {
-	const { style, value } = props;
+	const { type, style, placeholder } = props;
 
   return (
 		<input
+			type={type}
 			className="default-input"
 			style={style}
-			value={value}
+			placeholder={placeholder}
 		/>
   );
 }
 textBox.defaultProps = {
 	type: 'text',
 	style: {},
-	value: '',
+	placeholder: '',
 }
 
 
