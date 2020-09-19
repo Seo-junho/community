@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import TextBox from '../../tag-ui/input/textBox';
 import ApplyButton from '../../tag-ui/button/applyButton';
-
+import axios from 'axios';
 
 interface signupObject {
 	[key: string]: string | undefined;
@@ -13,11 +13,34 @@ interface signupObject {
 	email: string
 };
 
+interface signupPost {
+	message: string;
+}
+
+const pwRegexp: any = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/);
 const signupSchema = yup.object({
-	id: yup.string(),
-	password: yup.string(),
-	name: yup.string(),
-	email: yup.string().email(),
+	id: yup
+		.string()
+		.required('아이디를 입력해주세요.')
+		.min(5),
+	password: yup
+		.string()
+		.required('비밀번호를 입력해주세요.')
+		.min(6, '비밀번호는 최소 6자 이상 입력해주세요.')
+		.test(
+			'pw-test',
+			'비밀번호에는 숫자와 영대소문자 및 특수문자가 포함되어야 합니다.',
+			(pw: any) => {
+				const result = pwRegexp.exec(pw);
+				return result;
+			}
+		),
+	username: yup
+		.string()
+		.required('이름을 입력해주세요.'),
+	email: yup.string()
+		.required('이메일을 입력해주세요.')
+		.email('이메일 형식이 아닙니다.'),
 });
 
 const SignUp: React.FC = () => {
@@ -29,14 +52,26 @@ const SignUp: React.FC = () => {
 		email: '',
 	}
 
-	const onSubmitSignup = (e: any) => {
+	const onSubmitSignup = async (e: any) => {
 		e.preventDefault();
-		// TODO: yup
+		try {
+			await signupSchema.validate(signup);
+		} catch (e) {
+			// TODO: message Design
+			alert(e.message);
+			return;
+		}
+
 		if (signup.password !== signup.password2) {
 			alert('비밀번호가 다릅니다!');
 			return;
 		}
-		// TODO: axios
+
+		try {
+			const response = await axios.post<signupPost[]>('/api/signup');
+		} catch (e) {
+			alert(e.message);
+		}
 	}
 
 	const handleChange = (e: any) => {
