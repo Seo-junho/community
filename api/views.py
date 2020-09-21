@@ -12,11 +12,6 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
 
-class Index(View):
-    template_name = "index.html"
-    def get(self, request):
-        return render(request, self.template_name, None)
-
 class SignupView(View):
     def post(self, request):
         data = json.loads(request.body)

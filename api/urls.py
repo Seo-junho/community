@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import Index, FeedsView, SignupView, LoginView, MemberList
+from .views import FeedsView, SignupView, LoginView, MemberList
 
 feed_list = FeedsView.as_view({
     'post': 'create',
@@ -15,6 +15,7 @@ feed_detail = FeedsView.as_view({
 })
 
 urlpatterns = format_suffix_patterns([
+<<<<<<< HEAD
     path('',  Index.as_view(), name='index'),
     path(r'member/signup', SignupView.as_view()),
     path(r'member/login', LoginView.as_view()),
