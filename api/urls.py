@@ -16,8 +16,8 @@ feed_detail = FeedsView.as_view({
 
 urlpatterns = format_suffix_patterns([
     path('',  Index.as_view(), name='index'),
-    path('member/signup', SignupView.as_view()),
-    path('member/login', LoginView.as_view()),
+    path(r'member/signup', SignupView.as_view()),
+    path(r'member/login', LoginView.as_view()),
     path('member/get_list', MemberList.as_view()),
     path('auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('feeds/', feed_list, name='feed_list'),
