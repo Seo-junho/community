@@ -1,6 +1,7 @@
 import json
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions, generics, serializers
+from rest_framework.response import Response
 from .serializers import FeedsSerializer
 from .models import Feeds, Member
 
@@ -9,11 +10,8 @@ from django.views.generic import TemplateView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
 
-from rest_framework import permissions
-
 class Index(View):
     template_name = "index.html"
-
     def get(self, request):
         return render(request, self.template_name, None)
 
@@ -27,6 +25,7 @@ class SignupView(View):
         )
         return HttpResponse(status=200)
 
+class MemberList(View):
     def get(self, request):
         Member_data = Member.objects.values()
         return JsonResponse({'lists' : list(Member_data)}, status=200)

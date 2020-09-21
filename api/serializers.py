@@ -1,11 +1,10 @@
 from rest_framework import serializers
-from .models import Feeds
-from django.contrib.auth.models import User
+from .models import Feeds, Member
 
-class UserSerializer(serializers.ModelSerializer):
+class MemberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username', 'email')
+        model = Member
+        fields = ('name', 'email', 'password','create_date_time','update_date_time','status')
 
 class FeedsSerializer(serializers.ModelSerializer):
     #user = UserSerializer(read_only=True)
