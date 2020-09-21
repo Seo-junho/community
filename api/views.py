@@ -11,12 +11,6 @@ from django.http import HttpResponse, JsonResponse
 
 from rest_framework import permissions
 
-class Index(View):
-    template_name = "index.html"
-
-    def get(self, request):
-        return render(request, self.template_name, None)
-
 class SignupView(View):
     def post(self, request):
         data = json.loads(request.body)
