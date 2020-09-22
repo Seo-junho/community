@@ -4,13 +4,24 @@ import jwt
 
 from rest_framework import viewsets, permissions, generics, serializers
 from rest_framework.response import Response
-from .serializers import FeedsSerializer
+from .serializers import FeedsSerializer, MemberSerializer
 from .models import Feeds, Member
 
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
+
+
+
+class MemberIndex(viewsets.ModelViewSet):
+    queryset = Member.objects.all()
+    serializer_class = MemberSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 class SignupView(View):
     def post(self, request):
@@ -30,7 +41,6 @@ class SignupView(View):
 
         except KeyError:
             return JsonResponse({"message" : "INVALID_KEYS"}, status=400)
-
 
 class MemberList(View):
     def get(self, request):
@@ -58,7 +68,6 @@ class LoginView(View):
 
         except KeyError:
             return JsonResponse({'message' : "INVALID_KEYS"}, status=400)
-
 
 class FeedsView(viewsets.ModelViewSet):
     queryset = Feeds.objects.all()

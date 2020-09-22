@@ -1,10 +1,19 @@
 from rest_framework import serializers
 from .models import Feeds, Member
 
-class MemberSerializer(serializers.HyperlinkedModelSerializer):
+class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ('name', 'email', 'password','create_date_time','update_date_time','status')
+        fields = (
+             'idx',
+             'name',
+             'email',
+             'password',
+             'create_date_time',
+             'update_date_time',
+             'statu'
+        )
+        read_only_fields = ('create_date_time', 'update_date_time')
 
 class FeedsSerializer(serializers.ModelSerializer):
     #user = UserSerializer(read_only=True)
