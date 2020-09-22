@@ -127,7 +127,7 @@ DATE_FORMAT = 'Y-m-d'
 
 DATETIME_FORMAT = 'Y-m-d H:i:s'
 
-USE_TZ = False
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
