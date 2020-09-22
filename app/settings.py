@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import json
+import mimetypes
 
 # Config file add
 with open('/var/www/community/config.json', 'r') as f:
@@ -30,6 +31,11 @@ SECRET_KEY = '#m91n+ye%44-(*6!ftx8s69z=^yxo3br!*hsun-c5+tmll-o+='
 DEBUG = True
 
 ALLOWED_HOSTS = json_config['server']['allowed_host']
+
+#mimetypes
+mimetypes.add_type("text/html", ".html", True)
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("text/js", ".js", True)
 
 # Application definition
 
@@ -138,6 +144,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 WEBPACK_LOADER = {
     'DEFAULT': {
             'BUNDLE_DIR_NAME': 'bundles/',
-            'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json'),
+            'STATS_FILE': os.path.join(BASE_DIR, 'app/webpack-stats.prod.json'),
         }
 }
