@@ -15,8 +15,7 @@ feed_detail = FeedsView.as_view({
 })
 
 urlpatterns = format_suffix_patterns([
-<<<<<<< HEAD
-    path('',  Index.as_view(), name='index'),
+    #path('',  Index.as_view(), name='index'),
     path(r'member/signup', SignupView.as_view()),
     path(r'member/login', LoginView.as_view()),
     path('member/get_list', MemberList.as_view()),
