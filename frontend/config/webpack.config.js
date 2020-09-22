@@ -54,7 +54,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 const BundleTracker = require('webpack-bundle-tracker');
 const publicUrl = 'http://0.0.0.0:3000/';
 
-// 기존의 cssFilename을 다음과 같이 변경해줍니다. (앞의 static/ 을 없애줍니다.)
+// 기존의 cssFilename을 다음과 같이 변경해줍니다. (앞의 asset/ 을 없애줍니다.)
 const cssFilename = 'css/[name].[contenthash:8].css';
 
 // This is the production and development configuration.
@@ -80,7 +80,7 @@ module.exports = function(webpackEnv) {
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
-        // css is located in `static/css`, use '../../' to locate index.html folder
+        // css is located in `css`, use '../../' to locate index.html folder
         // in production `paths.publicUrlOrPath` can be a relative path
         options: paths.publicUrlOrPath.startsWith('.')
           ? { publicPath: '../../' }
@@ -186,7 +186,7 @@ module.exports = function(webpackEnv) {
         ? 'js/[name].[contenthash:8].chunk.js'
         : isEnvDevelopment && 'js/[name].chunk.js',
       // webpack uses `publicPath` to determine where the app is being served from.
-      // It requires a trailing slash, or the file assets will get an incorrect path.
+      // It requires a trailing slash, or the file will get an incorrect path.
       // We inferred the "public path" (such as / or /my-project) from homepage.
       publicPath: paths.publicUrlOrPath,
       // Point sourcemap entries to original disk location (format as URL on Windows)
@@ -359,7 +359,7 @@ module.exports = function(webpackEnv) {
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
           oneOf: [
-            // "url" loader works like "file" loader except that it embeds assets
+            // "url" loader works like "file" loader except that it embeds
             // smaller than specified limit in bytes as data URLs to avoid requests.
             // A missing `test` is equivalent to a match.
             {

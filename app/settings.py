@@ -40,6 +40,7 @@ mimetypes.add_type("text/js", ".js", True)
 # Application definition
 
 INSTALLED_APPS = [
+    'webpack_loader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'webpack_loader',
     'api',
 ]
 
@@ -139,7 +139,11 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#STATIC_ROOT = os.path.join(BASE_DIR, 'app/assets/bundles'),
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app/assets/bundles'),
+]
 
 WEBPACK_LOADER = {
     'DEFAULT': {
