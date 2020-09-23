@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -87,9 +87,6 @@ DATABASES = {
         'PASSWORD': json_config['server']['database']['pw'],
         'HOST': json_config['server']['database']['host'],
         'PORT': json_config['server']['database']['port'],
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
     }
 }
 
@@ -124,22 +121,21 @@ TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = False
+DATE_FORMAT = 'Y-m-d'
+
+DATETIME_FORMAT = 'Y-m-d H:i:s'
+
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-#STATIC_ROOT = os.path.join(BASE_DIR, 'app/assets/bundles'),
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'app'),
-    os.path.join(BASE_DIR, 'app/assets'),
-    os.path.join(BASE_DIR, 'app/assets/bundles'),
-]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/build')
+STATICFILES_DIRS = ( os.path.join('frontend/build'), )
 
 WEBPACK_LOADER = {
     'DEFAULT': {

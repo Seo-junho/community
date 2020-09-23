@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/static",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -14,13 +15,13 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/yup": "^0.29.7",
     "axios": "^0.20.0",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
+    "sass": "^1.26.11",
     "typescript": "~3.7.2",
     "yup": "^0.29.3"
   },
