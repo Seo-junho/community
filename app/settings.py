@@ -142,6 +142,8 @@ STATIC_URL = '/static/'
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'app/assets/bundles'),
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app'),
+    os.path.join(BASE_DIR, 'app/assets'),
     os.path.join(BASE_DIR, 'app/assets/bundles'),
 ]
 
