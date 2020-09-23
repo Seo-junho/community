@@ -23,7 +23,7 @@ class MemberIndex(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class SignupView(View):
+class Signup(View):
     def post(self, request):
         data = json.loads(request.body)
 
@@ -47,7 +47,7 @@ class MemberList(View):
         Member_data = Member.objects.values()
         return JsonResponse({'lists' : list(Member_data)}, status=200)
 
-class LoginView(View):
+class Login(View):
     def post(self, request):
         data = json.loads(request.body)
 
@@ -60,7 +60,7 @@ class LoginView(View):
                    ## @TODO 토큰 생성 로직 점검 후 토큰 생성 필요
                    ## token = jwt.encode({'user' : user.id}, algorithm='HS256').decode('UTF-8')
 
-                   return JsonResponse({"message" : "login Success!"}, status=200) ## 로그인 성공
+                   return JsonResponse({"message" : "login Success!", "user" : list(user), "code" : 200}, status=200) ## 로그인 성공
 
                 return HttpResponse(status=401) ## 비밀번호 실패
 
