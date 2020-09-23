@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './App.scss';
-
 import Router from './pages';
 import Header from './components/Header';
 

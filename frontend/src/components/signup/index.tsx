@@ -6,10 +6,9 @@ import axios from 'axios';
 
 interface signupObject {
 	[key: string]: string | undefined;
-	id: string;
 	password: string;
 	password2: string;
-	username: string;
+	name: string;
 	email: string
 };
 
@@ -19,10 +18,6 @@ interface signupPost {
 
 const pwRegexp: any = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/);
 const signupSchema = yup.object({
-	id: yup
-		.string()
-		.required('아이디를 입력해주세요.')
-		.min(5),
 	password: yup
 		.string()
 		.required('비밀번호를 입력해주세요.')
@@ -35,7 +30,7 @@ const signupSchema = yup.object({
 				return result;
 			}
 		),
-	username: yup
+	name: yup
 		.string()
 		.required('이름을 입력해주세요.'),
 	email: yup.string()
@@ -45,10 +40,9 @@ const signupSchema = yup.object({
 
 const SignUp: React.FC = () => {
 	const signup: signupObject = {
-		id: '',
 		password: '',
 		password2: '',
-		username: '',
+		name: '',
 		email: '',
 	}
 
@@ -68,7 +62,7 @@ const SignUp: React.FC = () => {
 		}
 
 		try {
-			const response = await axios.post<signupPost[]>('/api/signup');
+			const response = await axios.post<signupPost[]>('/api/member/signup');
 		} catch (e) {
 			alert(e.message);
 		}
@@ -85,12 +79,6 @@ const SignUp: React.FC = () => {
 		<form onSubmit={onSubmitSignup} className="card">
 			<h4>회원가입</h4>
 			<TextBox
-				name="id"
-				placeholder="아이디"
-				style={{ marginBottom: 10 }}
-				onChange={handleChange}
-			/>
-			<TextBox
 				name="password"
 				type="password"
 				placeholder="패스워드"
@@ -105,7 +93,7 @@ const SignUp: React.FC = () => {
 				onChange={handleChange}
 			/>
 			<TextBox
-				name="username"
+				name="name"
 				type="text"
 				placeholder="사용자 이름"
 				style={{ marginBottom: 10 }}
