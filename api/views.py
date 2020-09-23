@@ -11,8 +11,10 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views import View
 from django.http import HttpResponse, JsonResponse
+from django.contrib.staticfiles.views import serve
 
-
+def Index(req):
+    return serve(req, '../build/index.html')
 
 class MemberIndex(viewsets.ModelViewSet):
     queryset = Member.objects.all()
