@@ -2,3 +2,5 @@ myvenv/
 **__pycache__**
 config.json
 app/assets/bundles
+app/webpack-stats.prod.json
+
