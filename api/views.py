@@ -23,7 +23,7 @@ class MemberIndex(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-class SignupView(View):
+class Signup(View):
     def post(self, request):
         data = json.loads(request.body)
 
@@ -47,7 +47,7 @@ class MemberList(View):
         Member_data = Member.objects.values()
         return JsonResponse({'lists' : list(Member_data)}, status=200)
 
-class LoginView(View):
+class Login(View):
     def post(self, request):
         data = json.loads(request.body)
 
