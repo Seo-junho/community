@@ -9,7 +9,7 @@ interface signupObject {
 	id: string;
 	password: string;
 	password2: string;
-	username: string;
+	name: string;
 	email: string
 };
 
@@ -17,7 +17,7 @@ interface signupPost {
 	message: string;
 }
 
-const pwRegexp: any = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/);
+const pwRegexp: RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/gi;
 const signupSchema = yup.object({
 	id: yup
 		.string()
@@ -31,11 +31,11 @@ const signupSchema = yup.object({
 			'pw-test',
 			'비밀번호에는 숫자와 영대소문자 및 특수문자가 포함되어야 합니다.',
 			(pw: any) => {
-				const result = pwRegexp.exec(pw);
+				const result = pwRegexp.test(pw);
 				return result;
 			}
 		),
-	username: yup
+	name: yup
 		.string()
 		.required('이름을 입력해주세요.'),
 	email: yup.string()
@@ -48,7 +48,7 @@ const SignUp: React.FC = () => {
 		id: '',
 		password: '',
 		password2: '',
-		username: '',
+		name: '',
 		email: '',
 	}
 
@@ -68,7 +68,7 @@ const SignUp: React.FC = () => {
 		}
 
 		try {
-			const response = await axios.post<signupPost[]>('/api/signup');
+			const response = await axios.post<signupObject>('/api/member/signup', signup);
 		} catch (e) {
 			alert(e.message);
 		}
@@ -105,7 +105,7 @@ const SignUp: React.FC = () => {
 				onChange={handleChange}
 			/>
 			<TextBox
-				name="username"
+				name="name"
 				type="text"
 				placeholder="사용자 이름"
 				style={{ marginBottom: 10 }}
