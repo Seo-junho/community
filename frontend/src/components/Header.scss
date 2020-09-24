@@ -1,7 +1,11 @@
 @import '../style/mixin';
 
 .header {
-
+	width: 100%;
+	line-height: 45px;
+	height: 45px;
+	text-align: center;
+	border-bottom: 1px solid #e8e8e8;
 	@include respond-to('L') {
 	}
 	@include respond-to('M') {

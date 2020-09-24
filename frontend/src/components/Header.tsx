@@ -4,8 +4,7 @@ import './Header.scss';
 const Header: React.FC = () => {
   return (
 		<header className="header">
-			Header
-			헤더
+			Community
 		</header>
   );
 }

@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+}
+
+.nav-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #2C2C2C;
+  list-style-type: none;
+  text-align: right;
+  & > li{
+    padding: 15px;
+    cursor: pointer;
+    & > a {
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 12px;
+    }
+  }
+}
