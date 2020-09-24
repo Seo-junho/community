@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  BrowserRouter as
+  BrowserRouter,
   Router,
   Route,
   Switch,
@@ -13,7 +13,7 @@ import Login from './login';
 import SignUp from './signup';
 
 const Root: React.FC = () => (
-  <Router>
+  <BrowserRouter>
     <nav>
       <ul>
         <li><Link to="/">Home</Link></li>
@@ -29,7 +29,7 @@ const Root: React.FC = () => (
 			<Route path="/signup" component={SignUp} />
       <Redirect path="*" to="/" />
     </Switch>
-  </Router>
+  </BrowserRouter>
 )
 /*
 <BrowserRouter />
