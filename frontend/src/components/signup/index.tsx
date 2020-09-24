@@ -6,7 +6,6 @@ import axios from 'axios';
 
 interface signupObject {
 	[key: string]: string | undefined;
-	id: string;
 	password: string;
 	password2: string;
 	name: string;
@@ -19,10 +18,6 @@ interface signupPost {
 
 const pwRegexp: RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/gi;
 const signupSchema = yup.object({
-	id: yup
-		.string()
-		.required('아이디를 입력해주세요.')
-		.min(5),
 	password: yup
 		.string()
 		.required('비밀번호를 입력해주세요.')
@@ -45,7 +40,6 @@ const signupSchema = yup.object({
 
 const SignUp: React.FC = () => {
 	const signup: signupObject = {
-		id: '',
 		password: '',
 		password2: '',
 		name: '',
@@ -84,12 +78,6 @@ const SignUp: React.FC = () => {
   return (
 		<form onSubmit={onSubmitSignup} className="card">
 			<h4>회원가입</h4>
-			<TextBox
-				name="id"
-				placeholder="아이디"
-				style={{ marginBottom: 10 }}
-				onChange={handleChange}
-			/>
 			<TextBox
 				name="password"
 				type="password"
