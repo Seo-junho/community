@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/static",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -14,7 +15,10 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/yup": "^0.29.7",
+    "antd": "^4.8.2",
     "axios": "^0.20.0",
+    "craco": "0.0.3",
+    "craco-alias": "^2.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -26,8 +30,8 @@
     "yup": "^0.29.3"
   },
   "scripts": {
-    "start": "react-scripts start 0.0.0.0:3000",
-    "both": "react-scripts start 0.0.0.0:4000",
+    "start": "craco start",
+    "both": "react-scripts start 0.0.0.0:3000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -8,7 +8,6 @@ import {
   Link,
 } from 'react-router-dom';
 
-import CounterContainer from '../components/counter/CounterContainer';
 import Login from './login';
 import SignUp from './signup';
 
@@ -24,7 +23,6 @@ const Root: React.FC = () => (
     </nav>
     <Switch>
       <Route path="/" exact={true} render={() => <h3>Home</h3>} />
-			<Route path="/CounterContainer" component={CounterContainer} />
 			<Route path="/login" component={Login} />
 			<Route path="/signup" component={SignUp} />
       <Redirect path="*" to="/" />
