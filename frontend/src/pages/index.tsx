@@ -10,15 +10,16 @@ import {
 
 import Login from './login';
 import SignUp from './signup';
+import './main.scss';
 
 const Root: React.FC = () => (
   <BrowserRouter>
     <nav>
-      <ul>
+      <ul className="nav-container">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/CounterContainer">CounterContainer</Link></li>
-        <li><Link to="/login">Login Page</Link></li>
-        <li><Link to="/signup">SignUp Page</Link></li>
+        <li><Link to="/login">로그인</Link></li>
+        <li><Link to="/signup">회원가입</Link></li>
       </ul>
     </nav>
     <Switch>
