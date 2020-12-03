@@ -1,24 +1,28 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export interface UserInfo {
+  id: number,
+  email: string,
+}
 const auth = createSlice({
-  name: 'user/auth',
+  name: 'auth',
   initialState: {
     id: -1,
     email: '',
   },
   reducers: {
-    editUser: (state, action) => {
+    editAuthUser: (state, action: PayloadAction<UserInfo>) => {
       // axios
-      return {
-        id: 1,
-        email: 'test@gmail.com',
-      }
+      console.log('state', state)
+      console.log('action', action)
+      return action.payload;
     },
   }
 })
 
+// const authStore = configureStore({ reducer: auth.reducer });
 export const {
-  editUser
+  editAuthUser
 } = auth.actions;
 
-export default auth;
+export default auth.reducer;

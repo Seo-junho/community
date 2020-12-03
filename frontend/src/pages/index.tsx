@@ -8,8 +8,9 @@ import {
   Link,
 } from 'react-router-dom';
 
-import Login from './login';
-import SignUp from './signup';
+import Login from '@pages/login';
+import SignUp from '@pages/signup';
+import Home from '@components/Home';
 import './main.scss';
 
 const Root: React.FC = () => (
@@ -23,7 +24,7 @@ const Root: React.FC = () => (
       </ul>
     </nav>
     <Switch>
-      <Route path="/" exact={true} render={() => <h3>Home</h3>} />
+      <Route path="/" exact={true} component={Home} />
 			<Route path="/login" component={Login} />
 			<Route path="/signup" component={SignUp} />
       <Redirect path="*" to="/" />
